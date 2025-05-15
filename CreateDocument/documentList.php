@@ -4,7 +4,7 @@ if($conn ->connect_error) {
     die("DB connect Fail: " . $conn->connect_error);
 }
 
-$sql = "SELECT title, document, createDate FROM createdocument";
+$sql = "SELECT id, title, document, createDate FROM createdocument";
 $result = $conn->query($sql);
 ?>
 
@@ -25,9 +25,11 @@ $result = $conn->query($sql);
             echo "<p>$indexNum: [".htmlspecialchars($row['title'])."]</p>";
             echo "<p>".htmlspecialchars($row['document'])."</p>";
             echo "<p>작성일: ".htmlspecialchars($row['createDate'])."</p>";
-            echo "<button type='button'>삭제</button>";
-            echo "<button type='button'>수정</button>";
-            echo "<br><br>";
+           
+            echo "<form method='POST' action='deleteDocument.php'>";
+            echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
+            echo "<button type='submit'>삭제</button>";
+            echo "</form>";
             $indexNum++;
         }
     }
