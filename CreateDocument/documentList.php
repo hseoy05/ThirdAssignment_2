@@ -25,12 +25,15 @@ $result = $conn->query($sql);
             echo "<p>$indexNum: [".htmlspecialchars($row['title'])."]</p>";
             echo "<p>".htmlspecialchars($row['document'])."</p>";
             echo "<p>작성일: ".htmlspecialchars($row['createDate'])."</p>";
+            echo "<button type='button'>삭제</button>";
+            echo "<button type='button'>수정</button>";
             echo "<br><br>";
             $indexNum++;
         }
     }
     ?>
     <p></p>
-    <button type="button" onclick="location.href='createDocument.php'">create Document</button>
+    <a href='createDocument.php'>create Document</a>
+    <a href='../loginPage.html'>Logout</a>
 </body>
 </html>
