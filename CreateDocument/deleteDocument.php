@@ -7,17 +7,17 @@ if ($conn->connect_error) {
 if (isset($_POST['id'])) {
     $id = intval($_POST['id']);
 
-    $stmt = $conn->prepare("DELETE FROM createdocument WHERE id = ?");
-    $stmt->bind_param("i", $id);
+    $ss = $conn->prepare("DELETE FROM createdocument WHERE id = ?");
+    $ss->bind_param("i", $id);
 
-    if ($stmt->execute()) {
+    if ($ss->execute()) {
         header("Location: documentList.php");
         exit;
     } else {
-        echo "Fail: " . $stmt->error;
+        echo "Fail: " . $ss->error;
     }
 
-    $stmt->close();
+    $ss->close();
 }
 
 $conn->close();

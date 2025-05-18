@@ -11,17 +11,21 @@
     if ($conn->connect_error) {
         die("DB connect Fail: " . $conn->connect_error);
     }
+    session_start();
     
     $title = $_POST['title'] ?? '';
     $document = $_POST['document'] ?? '';
     $todayDate = date("Y-m-d");
+    $id = $_SESSION['userId'] ?? '';
 
-    if ($title || $content) {
-        $sql = "INSERT INTO createdocument (title, document, createDate) VALUES (?, ?, ?)";
+    if ($title || $document) {
+        $sql = "INSERT INTO createdocument (title, document, createDate, userId) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sss", $title, $document, $todayDate);
+        $stmt->bind_param("ssss", $title, $document, $todayDate, $id);
         $stmt->execute();
+        $stmt->close();
     }
+
     $conn->close();
     ?>
     <div>
