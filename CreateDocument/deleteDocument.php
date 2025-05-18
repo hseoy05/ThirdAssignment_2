@@ -11,9 +11,11 @@ if (isset($_POST['id'])) {
     $ss->bind_param("i", $id);
 
     if ($ss->execute()) {
+        echo "<script> console.log('Delete success!'); </script>";
         header("Location: documentList.php");
         exit;
     } else {
+        echo "<script> console.log('Delete fail!'); </script>";
         echo "Fail: " . $ss->error;
     }
 

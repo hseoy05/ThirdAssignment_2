@@ -10,14 +10,15 @@
         <h2>Create Document</h2>
         <br>
         <?php
+        session_start();
         $connection = new mysqli("localhost", "root","","testdb");
         if($connection->connect_error) {
             die("DB connect Fail: " . $connection->connect_error);
         }   
 
-        $sql = "SELECT userName FROM users";
+        $sql = "SELECT * FROM users";
         $result = $connection->query($sql);
-        
+
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo "<p>Welcome, " . htmlspecialchars($row['userName']) . "!</p>";

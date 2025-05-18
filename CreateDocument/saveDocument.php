@@ -16,12 +16,12 @@
     $title = $_POST['title'] ?? '';
     $document = $_POST['document'] ?? '';
     $todayDate = date("Y-m-d");
-    $id = $_SESSION['userId'] ?? '';
+    $userId = $_SESSION['userId'] ?? '';
 
     if ($title || $document) {
         $sql = "INSERT INTO createdocument (title, document, createDate, userId) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssss", $title, $document, $todayDate, $id);
+        $stmt->bind_param("ssss", $title, $document, $todayDate, $userId);
         $stmt->execute();
         $stmt->close();
     }
