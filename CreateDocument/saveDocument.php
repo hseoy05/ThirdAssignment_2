@@ -31,8 +31,8 @@
     <div>
         <h2>Save successful!</h2>
         <br><br>
-        <button type="button" onclick="location.href='documentList.php'">View Document List</button>
-        <button type="button" onclick="location.href='createDocument.php'">Create New Document</button>
+        <button class="button" type="button" onclick="location.href='documentList.php'">View Document List</button>
+        <button class="button" type="button" onclick="location.href='createDocument.php'">Create New Document</button>
     </div>
 </body>
 </html>
