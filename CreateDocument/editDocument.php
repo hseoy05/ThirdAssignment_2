@@ -6,7 +6,7 @@ if($conn->connect_error) {
     die("DB connect fail: " . $conn->connect_error);
 }
 $doc = null;
-$isCorrext = false;
+$isCorrect = false;
 
 if(isset($_GET["id"])) {
     $documentId = $_GET["id"];
@@ -18,12 +18,12 @@ if(isset($_GET["id"])) {
 
     $result = $ss->get_result();
 
-    if($result->num_rows === 1){
+    if($result->num_rows >0){
         $doc = $result->fetch_assoc();
         $documentUserId = $doc["userId"];
 
-        if($loginId === $documentUserId) {
-            $isCorrext = true;
+        if($loginId == $documentUserId) {
+            $isCorrect = true;
         }
     }
 }
@@ -31,12 +31,14 @@ if(isset($_GET["id"])) {
 
 
 <h2>Edit document</h2>
-<?php if ($isCorrext): ?>
+<?php if ($isCorrect): ?>
     <form method="post" action="editDocument2.php">
-        <label for="title">Title:</label>
-        <input type="text" id="title" value="<?= htmlspecialchars($doc['title']) ?>"><br><br>
+        <input type="hidden" name="id" value="<?= htmlspecialchars($doc['id']) ?>">
 
-        <label for="document"></label><br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name = "title" value="<?= htmlspecialchars($doc['title']) ?>" required><br><br>
+
+        <label for="document">Content:</label><br>
         <textarea id="document" name="document" rows="10" cols="100" required><?= htmlspecialchars($doc['document']) ?></textarea><br><br>
 
         <input type="submit" value="Edit Document">

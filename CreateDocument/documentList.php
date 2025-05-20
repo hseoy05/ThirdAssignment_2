@@ -31,14 +31,13 @@ $result = $conn->query($sql);
             echo "<p>작성일: ".htmlspecialchars($row['createDate'])."</p>";
             echo "<p>작성자: ".htmlspecialchars($row['userName'])."</p>";
             echo "<p></p>";
-
-            echo "<form method='POST' action='deleteDocument.php'>";
-            echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-            echo "<button type='submit'>삭제</button>";
-            echo "</form>  ";
-            echo "<form method='POST' action='editDocument.php'>";
-            echo "<button type='submit'>수정</button>";
+            echo "<form method ='post' action = 'deleteDocument.php'>";
+            echo "<input type='hidden' name ='id' value = '".$row['id']."'>";
+            echo "<button type ='submit'>삭제</button>";
             echo "</form>";
+            echo "<a href='editDocument.php?id=" . urlencode($row['id']) . "'>";
+            echo "<button>수정</button>";
+            echo "</a>";
             echo "<br><br>";
             $indexNum++;
         }

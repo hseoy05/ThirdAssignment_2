@@ -6,7 +6,7 @@ $title = $_POST['title'];
 $document = $_POST['document'];
 
 $stmt = $conn->prepare("UPDATE createdocument SET title = ?, document = ? WHERE id = ?");
-$stmt->bind_param("ssi", $title, $document, $id);
+$stmt->bind_param("sss", $title, $document, $id);
 $stmt->execute();
 
 echo "Successfully edited the document!";
