@@ -9,5 +9,7 @@ $stmt = $conn->prepare("UPDATE createdocument SET title = ?, document = ? WHERE 
 $stmt->bind_param("sss", $title, $document, $id);
 $stmt->execute();
 
-echo "Successfully edited the document!";
+echo "<script> alert('Success edit');
+            window.location.href = './documentList.php';
+            </script>";
 ?>
