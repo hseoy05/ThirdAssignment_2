@@ -35,7 +35,11 @@ $result = $conn->query($sql);
             echo "<form method='POST' action='deleteDocument.php'>";
             echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
             echo "<button type='submit'>삭제</button>";
+            echo "</form>  ";
+            echo "<form method='POST' action='editDocument.php'>";
+            echo "<button type='submit'>수정</button>";
             echo "</form>";
+            echo "<br><br>";
             $indexNum++;
         }
     }

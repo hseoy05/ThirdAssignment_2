@@ -11,7 +11,7 @@ if (isset($_POST['id'])) {
     $loginId = $_SESSION['userId'] ?? '';
 
     $ss = $conn->prepare("SELECT userId FROM createdocument WHERE id = ?");
-    $ss->bind_param("i", $documentId);
+    $ss->bind_param("s", $documentId);
     $ss->execute();
     $result = $ss->get_result();
 
@@ -21,7 +21,7 @@ if (isset($_POST['id'])) {
 
         if ($loginId === $documentUserId) {
             $stmt = $conn->prepare("DELETE FROM createdocument WHERE id = ?");
-            $stmt->bind_param("i", $documentId);
+            $stmt->bind_param("s", $documentId);
             if ($stmt->execute()) {
                 echo "<script>alert('Document deleted successfully.');</script>";
             } else {
