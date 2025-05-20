@@ -1,3 +1,5 @@
+<?php 
+session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,6 @@
         <h2>Create Document</h2>
         <br>
         <?php
-        session_start();
         $connection = new mysqli("db", "root","root","testdb");
         if($connection->connect_error) {
             die("DB connect Fail: " . $connection->connect_error);
