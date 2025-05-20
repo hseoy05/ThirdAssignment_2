@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    $conn = new mysqli("localhost", "root", "", "testdb");
+    $conn = new mysqli("db", "root", "root", "testdb");
     if ($conn->connect_error) {
         die("DB connect Fail: " . $conn->connect_error);
     }

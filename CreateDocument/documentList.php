@@ -1,6 +1,8 @@
-
 <?php
-$conn = new mysqli("localhost", "root", "", "testdb");
+header("Content-Type: text/html; charset=utf-8");
+$conn = new mysqli("db", "root", "root", "testdb");
+$conn->set_charset("utf8mb4");
+
 if($conn ->connect_error) {
     die("DB connect Fail: " . $conn->connect_error);
 }

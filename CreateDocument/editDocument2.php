@@ -1,5 +1,7 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "testdb");
+$conn = new mysqli("db", "root", "root", "testdb");
+$conn->set_charset("utf8mb4");
+header("Content-Type: text/html; charset=utf-8");
 
 $id = $_POST['id'];
 $title = $_POST['title'];
