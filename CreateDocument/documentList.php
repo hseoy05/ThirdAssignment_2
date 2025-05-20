@@ -1,3 +1,4 @@
+
 <?php
 $conn = new mysqli("localhost", "root", "", "testdb");
 if($conn ->connect_error) {
@@ -17,6 +18,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CssFiles/Preview.css">
     <title>Document List</title>
 </head>
 <body>
@@ -26,6 +28,7 @@ $result = $conn->query($sql);
     $indexNum = 1;
     if($result ->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
+            echo "<div class='list-card'>";
             echo "<p>$indexNum: [".htmlspecialchars($row['title'])."]</p>";
             echo "<p>".htmlspecialchars($row['document'])."</p>";
             echo "<p>작성일: ".htmlspecialchars($row['createDate'])."</p>";
@@ -38,6 +41,7 @@ $result = $conn->query($sql);
             echo "<a href='editDocument.php?id=" . urlencode($row['id']) . "'>";
             echo "<button>수정</button>";
             echo "</a>";
+            echo"</div>";
             echo "<br><br>";
             $indexNum++;
         }
