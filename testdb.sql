@@ -42,7 +42,6 @@ CREATE TABLE `createdocument` (
 
 INSERT INTO `createdocument` (`id`, `userId`, `title`, `document`, `createDate`) VALUES
 (15, '345', 'I love chocolate', 'dream cacao 56percent', '2025-05-18'),
-(17, 'uniCTJ', '존나힘들다', 'fucking korea university', '2025-05-18'),
 (18, '4321', '안녕하세요', '제 이름은 4321입니다.!!!', '2025-05-20'),
 (19, '123', 'test edit', 'hi my name is testName', '2025-05-20');
 
