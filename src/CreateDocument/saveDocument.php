@@ -1,3 +1,5 @@
+<?session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,6 @@
     if ($conn->connect_error) {
         die("DB connect Fail: " . $conn->connect_error);
     }
-    session_start();
     
     $title = $_POST['title'] ?? '';
     $document = $_POST['document'] ?? '';

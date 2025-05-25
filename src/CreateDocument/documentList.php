@@ -51,6 +51,6 @@ $result = $conn->query($sql);
     ?>
     <p></p>
     <a href='createDocument.php'>create Document</a>
-    <a href='../loginPage.html'>Logout</a>
+    <a href='../index.php'>Logout</a>
 </body>
 </html>
